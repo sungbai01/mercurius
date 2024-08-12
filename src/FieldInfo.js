@@ -14,3 +14,4 @@ const FieldInfo = ({ uid, key, inputValue, fieldData, isMatch, loading }) => {
 };
 
 export default FieldInfo;
+
