@@ -2,7 +2,7 @@ import React, { useState, useEffect } from 'react';
 import { useParams } from 'react-router-dom';
 import useFetchData from './useFetchData';
 import './App.css'; // CSS 파일 불러오기
-
+//24 08 25 9003
 const App = () => {
   const { uid, key } = useParams();
   const [inputValue, setInputValue] = useState(null);
