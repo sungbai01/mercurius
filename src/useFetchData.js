@@ -1,7 +1,15 @@
-// useFetchData.js
 import { useState, useEffect } from 'react';
 import { db } from './firebase';
 import { doc, getDoc } from 'firebase/firestore';
+
+// 하이픈을 자동으로 삽입하는 함수
+const formatSafeNumber = (number) => {
+  if (!number) return number;
+
+  // 예시: 하이픈을 삽입하는 규칙을 정의
+  // 이 예제에서는 (XXX) XXX-XXXX 형식으로 변환
+  return number.replace(/(\d{3})(\d{4})(\d{4})/, '$1-$2-$3');
+};
 
 const useFetchData = (uid, key, inputValue) => {
   const [isMatch, setIsMatch] = useState(null);
@@ -31,7 +39,7 @@ const useFetchData = (uid, key, inputValue) => {
 
             if (infoDocSnap.exists()) {
               const infoData = infoDocSnap.data();
-              setSafeNumber(infoData.SafeNumber);
+              setSafeNumber(formatSafeNumber(infoData.SafeNumber)); // 하이픈 삽입
               setLogo(infoData.Logo);
               setText(infoData.Text);
             } else {

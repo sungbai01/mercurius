@@ -2,6 +2,8 @@ import React, { useState, useEffect } from 'react';
 import { useParams } from 'react-router-dom';
 import useFetchData from './useFetchData';
 import './App.css'; // CSS 파일 불러오기
+import logo1011 from './Logos/1011Logo.png';
+
 //24 08 25 9003
 const App = () => {
   const { uid, key } = useParams();
@@ -29,20 +31,23 @@ const App = () => {
   }
 
   return (
-    <div className="container">
-      <h2>MERCURIUS</h2>
-      {loading ? (
-        <p className="loading">Loading...</p>
-      ) : isMatch ? (
-        <div className="data">
-          {logoSrc && <img src={logoSrc} alt={`${logo} Logo`} />}
-          <p> {safeNumber !== null ? safeNumber : 'No SafeNumber available'}</p>
-          <p> {text !== null ? text : 'No text available'}</p>
+    <div>
+            <div className="header">
+                <img src={logo1011} alt="1011logo" />
+                <div className="logo-text">Mercurius</div>
+            </div>
+            <div className="main-container">
+                <div className="main-text">
+                    안심번호를 통해 안전하게 연결됩니다
+                </div>
+                <div className="textdata">
+                {text !== null ? text : 'No text available'}
+                </div>
+                <div className="safetynumberBox">
+                <p> {safeNumber !== null ? safeNumber : 'No SafeNumber available'}</p>
+                </div>
+            </div>
         </div>
-      ) : (
-        <p>Data does not match or is unavailable.</p>
-      )}
-    </div>
   );
 };
 

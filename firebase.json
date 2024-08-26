@@ -1,6 +1,6 @@
 {
   "hosting": {
-    "site": "mytestapp6502",
+    "site": "mercurius-6075e",
     "public": "build",
     "ignore": [
       "firebase.json",
